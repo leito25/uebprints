@@ -1,32 +1,36 @@
 ---
 name: unreal-course-log
-description: Use when updating this Unreal Engine course learning log after commits, analyzing git commits against ProjectLog.md sessions, adding brief commit notes, and marking course progress checkboxes without inventing unsupported work.
-metadata:
-  short-description: Update Unreal course learning log from commits
+description: Use when updating the Unreal Engine Blueprint Scripting 101 course learning log after commits or study sessions, analyzing git changes against ProjectLog.md sessions, adding brief commit notes, and marking course progress checkboxes without inventing unsupported work.
 ---
 
-# Unreal Course Log
+# Unreal Blueprint Course Log
 
-Use this skill when the user asks to update, analyze, mark progress, or add comments/details in `ProjectLog.md` after a git commit or course-work session for the Unreal Lab UI project.
+Use this skill when the user asks to update, analyze, mark progress, or add comments/details in `ProjectLog.md` after a git commit or coursework session for the Udemy course "Unreal Engine Blueprint Scripting 101":
+
+`https://www.udemy.com/course/unreal-engine-blueprint-scripting-101/`
 
 ## Workflow
 
 1. Read `ProjectLog.md`.
+   - If it does not exist, create a concise course log skeleton before adding progress.
+   - Prefer existing section/session titles in `ProjectLog.md` over the topic hints below.
 2. Inspect the target commit, defaulting to `HEAD`:
    - `git show --stat --summary HEAD`
    - `git show --name-status --format=fuller HEAD`
-   - Read changed source/config/docs files when the stat is not enough.
+   - Read changed Blueprint-adjacent assets, C++ source, config, maps, docs, or generated notes when the stat is not enough.
 3. Match the commit to one learning session using the strongest evidence:
-   - Common UI setup, test map, player controller, layout, subsystem -> Session 02.
-   - Async widget pushing, press-any-key, developer settings, function library -> Session 03.
-   - Main menu, buttons, input data, confirmation, quit -> Session 04.
-   - Options tabs, tab list, data registry, data collections -> Session 05.
-   - Gameplay settings, list entries, reset/default settings -> Session 06.
-   - Audio settings, sliders, volume, HDR audio -> Session 07.
-   - Video settings, resolution, quality, VSync, frame limit -> Session 08.
-   - Controls, key remapping, input icons, input preprocessor -> Session 09.
-   - Loading screen, credits, rich text, camera tags -> Session 10.
-   - Documentation, cleanup, project baseline, logging -> Session 01 or Session 11 depending on whether it starts or wraps up work.
+   - Course/project setup, engine version, starter map, repository baseline, `.uproject`, `.gitignore` -> Session 01 or the setup/overview section.
+   - Blueprint editor orientation, graph navigation, nodes, execution pins, comments, compile/save workflow -> the Blueprint basics section.
+   - Variables, types, object references, arrays, structs, enums, defaults, editable/exposed values -> the variables/data section.
+   - Branches, sequences, loops, gates, delays, timers, flow-control nodes -> the flow-control section.
+   - Functions, macros, collapsed graphs, pure functions, local variables, reusable logic -> the functions/macros section.
+   - Events, input actions, key/mouse/gamepad bindings, player controller, pawn/character input -> the events/input section.
+   - Actors, components, construction script, transforms, spawning, destroying, attaching -> the actors/components section.
+   - Collision, overlap/hit events, traces, casting/interfaces, object communication -> the interaction/communication section.
+   - Timeline, interpolation, movement, animation triggers, materials, audio cues, particle or Niagara triggers -> the feedback/polish section.
+   - Widgets, HUD, UMG, buttons, text, progress bars, viewport widget creation -> the UI section.
+   - Debugging, print string, breakpoints, watch values, validation, cleanup, naming conventions -> the debugging/cleanup section.
+   - Packaging, final review, documentation, course wrap-up -> the final/wrap-up section.
 4. Update only the matched session unless the commit clearly spans multiple sessions.
 5. Under `Related commits`, add one short bullet:
    - ``- `shortsha` - Brief learning-focused note.``
@@ -39,30 +43,52 @@ Use this skill when the user asks to update, analyze, mark progress, or add comm
 8. Add a blocker or follow-up only when the commit or build output shows one.
 9. Preserve user notes, existing commit history, and unrelated file changes.
 
+## ProjectLog Skeleton
+
+When `ProjectLog.md` is missing, create a compact skeleton with these sections:
+
+```markdown
+# Unreal Engine Blueprint Scripting 101 - Project Log
+
+Course: https://www.udemy.com/course/unreal-engine-blueprint-scripting-101/
+
+## Session 01 - Setup and Overview
+Status: Not started
+
+### Checklist
+- [ ] Create or open the Unreal project
+- [ ] Configure source control ignores
+- [ ] Record the course baseline
+
+### Related commits
+
+### Log notes
+```
+
+Add later sessions only when the user provides lecture titles, `ProjectLog.md` already contains them, or a commit clearly belongs to a Blueprint topic listed in the workflow.
+
 ## Output Rules
 
 - Keep notes brief and factual.
 - Prefer course-learning language over raw implementation detail.
 - Do not claim tests passed unless they were run.
-- If no confident session match exists, add the commit to the closest session with a `Follow-up` note explaining what needs human confirmation.
+- If no confident session match exists, add the commit to the closest existing session with a `Follow-up` note explaining what needs human confirmation.
+- Do not claim a specific Udemy lecture was completed unless the user explicitly says so or `ProjectLog.md` already records it.
 
-## Helper Script
+## Helper Commands
 
-This repo includes two helper scripts.
+Gather context for a commit:
 
-Use this to gather commit context:
-
-```bash
-scripts/course-log-commit-context.sh
-scripts/course-log-commit-context.sh --commit HEAD~1
-scripts/course-log-commit-context.sh --diff
+```powershell
+git show --stat --summary HEAD
+git show --name-status --format=fuller HEAD
+git log --oneline -10
 ```
 
-Use this to add a manual dated note:
+Add a manual dated note to `ProjectLog.md` under the relevant session's **Log notes** block:
 
-```bash
-scripts/add-comment-to-log --session 1 --comment "Configured the course-log automation workflow."
-scripts/add-comment-to-log --session 2 --detail "Confirmed Common UI plugin settings."
+```
+- YYYY-MM-DD - Your note here.
 ```
 
-The commit-context script does not call an AI service and does not edit files. The comment script edits only `ProjectLog.md`.
+Do not fabricate log notes. Only write notes grounded in the commit diff or the user's explicit statement.
