@@ -5,70 +5,71 @@ Course: https://www.udemy.com/course/unreal-engine-blueprint-scripting-101/
 Curriculum source: Udemy public curriculum API for course `1790974`.
 
 ## Session 01 - Getting Started
-Status: Not started
+Status: Completed
 
 ### Checklist
-- [ ] 001 - Course Primer
-- [ ] 002 - Download & Install
-- [ ] 003 - Create Project
+- [x] 001 - Course Primer
+- [x] 002 - Download & Install
+- [x] 003 - Create Project
 
 ### Related commits
 
 ### Log notes
 
 ## Session 02 - Blueprint Overview
-Status: Not started
+Status: Completed
 
 ### Checklist
-- [ ] 004 - Blueprint Example
-- [ ] 005 - Components Panel
-- [ ] 006 - Viewport Tab
-- [ ] 007 - Details Panel
-- [ ] 008 - My Blueprint Panel
-- [ ] 009 - Event Graph
-- [ ] 010 - Construction Script
+- [x] 004 - Blueprint Example
+- [x] 005 - Components Panel
+- [x] 006 - Viewport Tab
+- [x] 007 - Details Panel
+- [x] 008 - My Blueprint Panel
+- [x] 009 - Event Graph
+- [x] 010 - Construction Script
 
 ### Related commits
 
 ### Log notes
 
 ## Session 03 - Blueprint Types
-Status: Not started
+Status: Completed
 
 ### Checklist
-- [ ] 011 - Class Blueprints
-- [ ] 012 - Level Blueprints
+- [x] 011 - Class Blueprints
+- [x] 012 - Level Blueprints
 
 ### Related commits
 
 ### Log notes
 
 ## Session 04 - Scripting Essentials
-Status: Not started
+Status: Completed
 
 ### Checklist
-- [ ] 013 - Node Types
-- [ ] 014 - Execution & Data Pins
-- [ ] 015 - Node Wiring
-- [ ] 016 - Node Organization
+- [x] 013 - Node Types
+- [x] 014 - Execution & Data Pins
+- [x] 015 - Node Wiring
+- [x] 016 - Node Organization
 
 ### Related commits
 
 ### Log notes
 
 ## Session 05 - Creating Object References
-Status: Not started
+Status: Completed
 
 ### Checklist
-- [ ] 017 - Level BP - Design Time Object References
-- [ ] 018 - Level BP - Run Time Object References
-- [ ] 019 - Class BP - Design Time Object References
-- [ ] 020 - Class BP - Run Time Object References
-- [ ] 021 - Casted Object References
-- [ ] 022 - Widget BP References
-- [ ] 023 - Tag References
+- [x] 017 - Level BP - Design Time Object References
+- [x] 018 - Level BP - Run Time Object References
+- [x] 019 - Class BP - Design Time Object References
+- [x] 020 - Class BP - Run Time Object References
+- [x] 021 - Casted Object References
+- [x] 022 - Widget BP References
+- [x] 023 - Tag References
 
 ### Related commits
+- `41282cf` - Added casting and object-reference Blueprint assets for level, widget, and character interactions.
 
 ### Log notes
 
